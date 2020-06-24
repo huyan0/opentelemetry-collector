@@ -42,7 +42,7 @@ Follow the instructions below to create your PR.
 In the interest of keeping this repository clean and manageable, you should
 work from a fork. To create a fork, click the 'Fork' button at the top of the
 repository, then clone the fork locally using `git clone
-git@github.com:USERNAME/opentelemetry-service.git`.
+git@github.com:USERNAME/opentelemetry-collector.git`.
 
 You should also add this repository as an "upstream" repo to your local copy,
 in order to keep it up to date. You can add this as a remote like so:
@@ -79,17 +79,18 @@ Working with the project sources requires the following tools:
 
 ## Repository Setup
 
-Fork the repo, checkout the upstream repo to your GOPATH by:
+Fork the repo, go into your local repo, checkout the upstream repo to your GOPATH by:
 
 ```
 $ GO111MODULE="" go get -d go.opentelemetry.io/collector
 ```
+Note: try closing VPN connection if there is a proxy error.
 
 Add your fork as an origin:
 
 ```shell
 $ cd $(go env GOPATH)/src/go.opentelemetry.io/collector
-$ git remote add fork git@github.com:YOUR_GITHUB_USERNAME/opentelemetry-service.git
+$ git remote add fork git@github.com:YOUR_GITHUB_USERNAME/opentelemetry-collector.git
 ```
 
 Run tests, fmt and lint:
@@ -99,7 +100,7 @@ $ make install-tools # Only first time.
 $ make
 ```
 
-*Note:* the default build target requires tools that are installed at `$(go env GOPATH)/bin`, ensure that `$(go env GOPATH)/bin` is included in your `PATH`.
+**Note**: the default build target requires tools that are installed at `$(go env GOPATH)/bin`, ensure that `$(go env GOPATH)/bin` is included in your `PATH`.
 
 ## Creating a PR
 
